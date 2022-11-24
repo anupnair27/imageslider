@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		drag and drop
+	</title>
+	
+	<link href =
+"https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+			rel = "stylesheet">
+	
+	<script src =
+"https://code.jquery.com/jquery-1.10.2.js">
+	</script>
+	
+	<script src =
+"https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+	</script>
+		
+	<style>
+
+		/* text align for the body */
+		body {
+			text-align: center;
+		}
+
+		/* image dimension */
+		img{
+			height: 200px;
+			width: 350px;
+		}
+
+		/* imagelistId styling */
+		#imageListId
+		{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+		}
+		#imageListId div
+		{
+			margin: 0 4px 4px 4px;
+			padding: 0.4em;			
+			display: inline-block;
+		}
+
+		
+	</style>
+		
+	<script>
+		$(function() {
+			$( "#imageListId" ).sortable({
+			update: function(event, ui) {
+				getIdsOfImages();
+			}//end update		
+			});
+		});
+		
+		function getIdsOfImages() {
+			var values = [];
+			$('.listitemClass').each(function (index) {
+				values.push($(this).attr("id")
+						.replace("imageNo", ""));
+			});
+			
+			$('#outputvalues').val(values);
+		}
+	</script>
+</head>
+	
+<body>
+	<h1 style="color:black">Slide these Images</h1>
+	
+	<b></b>
+	
+	<div class="height"></div><br>
+	
+	<div id = "imageListId">
+		<div id="imageNo1" class = "listitemClass">
+			<img src="https://www.hlimg.com/images/stories/738X538/taj-mahal_1546927799-3874e.jpg?w=800&dpr=1.3" alt="">
+		</div>
+		
+		<div id="imageNo2" class = "listitemClass">
+			<img src="https://www.thoughtco.com/thmb/oE-wRfhScZ6xZau3HyQYsPTpJ8Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Christ_the_Redeemer-140514153-56a02f845f9b58eba4af490a.jpg" alt="">
+		</div>
+
+		<div id="imageNo3" class = "listitemClass">
+			<img src="https://www.hlimg.com/images/stories/738X538/Great_1431060376u20.jpg?w=800&dpr=1.3.png" alt="">
+		</div>
+
+		<div id="imageNo4" class = "listitemClass">
+			<img src="https://www.hlimg.com/images/stories/738X538/pyramid_1431060377u80.jpg?w=800&dpr=1.3" alt="">
+		</div>
+
+		<div id="imageNo5" class = "listitemClass">
+			<img src="https://www.hlimg.com/images/stories/738X538/Colosseum_1431060377u70.jpg?w=800&dpr=1.3" alt="">
+		</div>
+
+		<div id="imageNo6" class = "listitemClass">
+			<img src="https://www.hlimg.com/images/stories/738X538/Machu_1431060376u50.jpg?w=800&dpr=1.3" alt="">
+		</div>
+	</div>
+		
+	
+</body>
+
+</html>
